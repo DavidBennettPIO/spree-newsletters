@@ -1,0 +1,6 @@
+show
+- @newsletter.newsletter_lines.each do |newsletter_line|
+  line
+  - l = {}
+  - l[newsletter_line.module_name + '_id'] = newsletter_line.module_id.to_i unless newsletter_line.module_id.nil?
+  = render :partial => 'newsletter_mailer/' + newsletter_line.module_name, :locals => l
