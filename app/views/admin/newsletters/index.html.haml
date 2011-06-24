@@ -1,0 +1,22 @@
+.toolbar
+  %ul.actions
+    %li= button_link_to t(:new_newsletter), new_admin_newsletter_path, :icon => 'add'
+  %br.clear
+%h1=t(:newsletters)
+
+%table.index
+  %thead
+    %tr
+      %th=t(:newsletter_sent)
+      %th=t(:newsletter_subject)
+      %th=t(:newsletter_clicks)
+      %th{:width => 150}= t("action")
+  %tbody
+    - for newsletter in @newsletters
+      %tr{:id => dom_id(newsletter)}
+        %td= newsletter.email_sent.nil? ? '' : icon('tick')
+        %td= newsletter.subject
+        %td= newsletter.email_click
+        %td
+          = link_to_edit newsletter
+          = link_to_delete newsletter

@@ -1,5 +1,8 @@
 class NewsletterMailer < ActionMailer::Base
   layout 'newsletter'
+  helper :newsletter
+  helper 'spree/base'
+  helper :products
   default :from => "noreply@triggahappi.com.au"
   
   

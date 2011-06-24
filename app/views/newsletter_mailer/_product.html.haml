@@ -1,2 +1,9 @@
-%h2 Product
-ffsdasdfa
+- product = Product.find(product_id)
+%td{:valign => 'top', :style => 'border-right: '+ product_padding + ' #EEE solid;'}
+  %table{:width => 134, :height => 240, :style => 'background-color: #FFF; border: 1px #ccc solid; width: 134px;', :cellpadding => 0, :cellspacing => 0, :border => 0}
+    %tr
+      %td{:height => 164, :valign => 'middle', :align => 'center'}
+        = image_tag product.images.first.attachment.url(:small, false)
+    %tr
+      %td{:align => 'center'}
+        = product.name

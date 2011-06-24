@@ -4,10 +4,14 @@ class CreateNewsletterLines < ActiveRecord::Migration
       t.references :newsletter
       t.string :module_name
       t.integer :module_id
+      t.string :module_value
       t.string :permalink
+      
       t.integer :email_sent
       t.integer :email_view
       t.integer :email_click
+      
+      t.integer :position
 
       t.timestamps
     end

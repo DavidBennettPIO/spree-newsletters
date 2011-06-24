@@ -1,0 +1,7 @@
+= render "shared/error_messages", :target => @newsletter
+%fieldset#general_fields
+  %legend= t(:general)
+  = f.field_container :subject do
+    = f.label :subject
+    <br />
+    = f.text_field :subject, :style => "width:410px"

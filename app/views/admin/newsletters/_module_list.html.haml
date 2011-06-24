@@ -1,0 +1,5 @@
+%ul#module_list{:style => 'list-style: none outside none;'}
+  - @newsletter.newsletter_lines.each do |nl|
+    %li{ :id=> 'module_' + nl.id.to_s}
+      = icon(nl.module_name)
+      = nl.module_value

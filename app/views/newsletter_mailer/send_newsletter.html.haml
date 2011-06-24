@@ -1,6 +1,6 @@
-show
+- prev_module_name = ''
 - @newsletter.newsletter_lines.each do |newsletter_line|
-  line
-  - l = {}
-  - l[newsletter_line.module_name + '_id'] = newsletter_line.module_id.to_i unless newsletter_line.module_id.nil?
-  = render :partial => 'newsletter_mailer/' + newsletter_line.module_name, :locals => l
+  = render_html_module newsletter_line, prev_module_name
+  - prev_module_name = newsletter_line.module_name
+- if prev_module_name == 'product'
+  </tr></table> 

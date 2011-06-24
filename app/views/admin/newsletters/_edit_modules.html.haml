@@ -1,0 +1,45 @@
+= csrf_meta_tag
+
+%fieldset#module_fields  
+  %legend= t(:add_newsletter_module)
+  = form_for(:newsletter_line, :url => add_module_admin_newsletters_path, :remote => true, :html => { :method => :post }) do |f|
+    = f.hidden_field :newsletter_id, :value => @newsletter.id
+    = f.hidden_field :module_name, :value => 'h2'
+    = f.field_container :heading do
+      = f.label :heading
+      <br />
+      = f.text_field :module_value, :style => "width:410px"
+      = f.submit :value => 'Add Heading'
+
+  = form_for(:newsletter_line, :url => add_module_admin_newsletters_path, :remote => true, :html => { :method => :post }) do |f|
+    = f.hidden_field :newsletter_id, :value => @newsletter.id
+    = f.hidden_field :module_name, :value => 'product'
+    = f.field_container :add_product do
+      = f.label :add_product
+      <br />
+      = f.text_field :module_value, :style => "width:410px", :id => 'add_product_name'
+      = f.hidden_field :module_id, :id => 'add_product_id'
+      = f.submit :value => 'Add Product'
+  = form_for(:newsletter_line, :url => add_module_admin_newsletters_path, :remote => true, :html => { :method => :post }) do |f|
+    = f.hidden_field :newsletter_id, :value => @newsletter.id
+    = f.hidden_field :module_name, :value => 'hr'
+    = f.field_container :add_product do
+      = f.label :add_ruler
+      <br />
+      = f.submit :value => 'Add Ruler'
+
+- content_for :sidebar do
+  = render :partial => "module_list"
+  #trash TRASH
+      
+%fieldset#email_preview
+  %legend= t(:newsletter_preview)
+  %iframe{:id => 'newsletter-preview', :src => newsletter_path(@newsletter.id), :width => '900px', :height => '600px'}
+  
+- content_for :head do
+  = javascript_include_tag '/admin/javascripts/newsletters/edit.js'
+  = stylesheet_link_tag '/admin/stylesheets/edit_checkouts.css'
+  = stylesheet_link_tag '/admin/stylesheets/newsletters/edit.css'
+  
+:javascript
+  var newsletter_id = #{@newsletter.id};
