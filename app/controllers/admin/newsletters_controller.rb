@@ -1,7 +1,8 @@
 class Admin::NewslettersController < Admin::ResourceController
   
   def add_module
-    NewsletterLine.create(params['newsletter_line'])
+    params['module']['position'] = 100
+    NewsletterLine.create(params['module'])
     module_list
   end
   

@@ -2,31 +2,24 @@
 
 %fieldset#module_fields  
   %legend= t(:add_newsletter_module)
-  = form_for(:newsletter_line, :url => add_module_admin_newsletters_path, :remote => true, :html => { :method => :post }) do |f|
-    = f.hidden_field :newsletter_id, :value => @newsletter.id
-    = f.hidden_field :module_name, :value => 'h2'
-    = f.field_container :heading do
-      = f.label :heading
-      <br />
-      = f.text_field :module_value, :style => "width:410px"
-      = f.submit :value => 'Add Heading'
 
-  = form_for(:newsletter_line, :url => add_module_admin_newsletters_path, :remote => true, :html => { :method => :post }) do |f|
-    = f.hidden_field :newsletter_id, :value => @newsletter.id
-    = f.hidden_field :module_name, :value => 'product'
-    = f.field_container :add_product do
-      = f.label :add_product
-      <br />
-      = f.text_field :module_value, :style => "width:410px", :id => 'add_product_name'
-      = f.hidden_field :module_id, :id => 'add_product_id'
-      = f.submit :value => 'Add Product'
-  = form_for(:newsletter_line, :url => add_module_admin_newsletters_path, :remote => true, :html => { :method => :post }) do |f|
-    = f.hidden_field :newsletter_id, :value => @newsletter.id
-    = f.hidden_field :module_name, :value => 'hr'
-    = f.field_container :add_product do
-      = f.label :add_ruler
-      <br />
-      = f.submit :value => 'Add Ruler'
+  %fieldset
+    = link_to text_for_button_link(t("add_ruler"), :icon => 'add'), '#', :id => 'add_ruler', :class => 'button'
+
+  %fieldset  
+    %legend= t(:add_heading)
+    %div{:style => "float:left;width:85%;margin-right:5%;"}
+      = text_field_tag :add_header_value, nil, :class => 'fullwidth title'
+    %div{:style => "float:left;width:10%"}
+      = link_to text_for_button_link(t("add_heading"), :icon => 'add'), '#', :id => 'add_header', :class => 'button'
+      
+  %fieldset  
+    %legend= t(:add_product)
+    %div{:style => "float:left;width:85%;margin-right:5%;"}
+      = text_field_tag :add_product_value, nil, :class => 'fullwidth title'
+      = hidden_field_tag :add_product_id
+    %div{:style => "float:left;width:10%"}
+      = link_to text_for_button_link(t("add_product"), :icon => 'add'), '#', :id => 'add_product', :class => 'button'
 
 - content_for :sidebar do
   = render :partial => "module_list"

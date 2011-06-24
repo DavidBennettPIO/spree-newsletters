@@ -21,13 +21,7 @@ jQuery.fn.product_autocomplete = function(){
 
 $(document).ready(function(){
   
-  $("#add_product_name").product_autocomplete();
-  
-  $('form').bind('ajax:success',function(data, status, xhr){
-    preview_newsletter();
-    $('#module_list').replaceWith(data);
-    init_module_list();
-  });
+  $("#add_product_value").product_autocomplete();
   
   $("#trash").droppable({
     accept: "#module_list > li",
@@ -42,9 +36,39 @@ $(document).ready(function(){
       });
     }
   });
+  
+  $("#add_ruler").click(function(e){
+    add_module('hr');
+    e.preventDefault();
+  });
+  
+  $("#add_header").click(function(e){
+    add_module('h2', $("#add_header_value").val());
+    e.preventDefault();
+  });
+  
+  $("#add_product").click(function(e){
+    add_module('product', $("#add_product_value").val(), $("#add_product_id").val());
+    e.preventDefault();
+  });
 
   init_module_list();
 });
+
+function add_module(name, value, id)
+{
+  posts = 'module[newsletter_id]='+newsletter_id+'&module[module_name]='+name;
+  if(value != undefined)
+    posts = posts+'&module[module_value]='+encodeURI(value);
+  if(id != undefined)
+    posts = posts+'&module[module_id]='+id;
+    
+  jQuery.post( '/admin/newsletters/add_module?newsletter_id='+newsletter_id, posts,function(data, status, xhr){
+    preview_newsletter();
+    $('#module_list').replaceWith(data);
+    init_module_list();
+  });
+}
 
 function preview_newsletter()
 {
@@ -60,6 +84,4 @@ function init_module_list()
       });
      }
   });
-  
-  
 }
