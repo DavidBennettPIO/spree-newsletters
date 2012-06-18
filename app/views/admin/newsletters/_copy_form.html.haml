@@ -1,0 +1,16 @@
+%p
+  = f.label :title
+  = f.text_field :title
+%p
+  <br />
+  = f.label :body
+  <br />
+  = f.text_area :body
+%p
+  = f.label :show_title
+  = f.check_box :show_title
+  <br />
+  = f.label :small_text
+  = f.check_box :small_text
+%p
+  = f.submit 'Save'

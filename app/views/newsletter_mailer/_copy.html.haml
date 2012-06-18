@@ -1,0 +1,10 @@
+- copy = NewsletterCopy.find(copy_id)
+- unless copy.small_text
+  - if copy.show_title
+    %h2{:class => "ch2"}= copy.title
+  = m copy.body
+- else
+  - if copy.show_title
+    %h4{:class => "ch4"}= copy.title
+  .smalltext
+    = m copy.body

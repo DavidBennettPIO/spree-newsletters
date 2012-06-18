@@ -1,38 +1,58 @@
-= csrf_meta_tag
-
-%fieldset#module_fields  
-  %legend= t(:add_newsletter_module)
-
-  %fieldset
-    = link_to text_for_button_link(t("add_ruler"), :icon => 'add'), '#', :id => 'add_ruler', :class => 'button'
-
-  %fieldset  
-    %legend= t(:add_heading)
-    %div{:style => "float:left;width:85%;margin-right:5%;"}
-      = text_field_tag :add_header_value, nil, :class => 'fullwidth title'
-    %div{:style => "float:left;width:10%"}
-      = link_to text_for_button_link(t("add_heading"), :icon => 'add'), '#', :id => 'add_header', :class => 'button'
-      
-  %fieldset  
-    %legend= t(:add_product)
-    %div{:style => "float:left;width:85%;margin-right:5%;"}
-      = text_field_tag :add_product_value, nil, :class => 'fullwidth title'
-      = hidden_field_tag :add_product_id
-    %div{:style => "float:left;width:10%"}
-      = link_to text_for_button_link(t("add_product"), :icon => 'add'), '#', :id => 'add_product', :class => 'button'
-
 - content_for :sidebar do
-  = render :partial => "module_list"
-  #trash TRASH
+  %h3 Add Newsletter Module
+
+  = link_to text_for_button_link(t("add_ruler"), :icon => 'add'), '#', :id => 'add_ruler'
+  
+  %h4 Add Copy
+  %p
+    = link_to text_for_button_link('Copy', :icon => 'add'), '#', :id => 'add_copy'
+
+  %h4 Add Header  
+  %p
+    = text_field_tag :add_header_value, nil
+    = link_to icon('add'), '#', :id => 'add_header'
+      
+  %h4 Add Product
+  %p
+    = text_field_tag :add_product_value, nil
+    = hidden_field_tag :add_product_id
+    = link_to icon('add'), '#', :id => 'add_product'
+    
+  %h4 Add Image
+  %p
+    NAME:
+    = text_field_tag :image_name, nil
+    <br />HREF:
+    = text_field_tag :image_href, nil
+    <br />
+    = link_to 'select files', '#', :id => 'select_image'
+    = link_to icon('add'), '#', :id => 'add_image'
+
+
+  
       
 %fieldset#email_preview
   %legend= t(:newsletter_preview)
   %iframe{:id => 'newsletter-preview', :src => newsletter_path(@newsletter.id), :width => '900px', :height => '600px'}
+  .module_order_out
+    = render :partial => "module_list"
+    #trash TRASH
   
 - content_for :head do
-  = javascript_include_tag '/admin/javascripts/newsletters/edit.js'
-  = stylesheet_link_tag '/admin/stylesheets/edit_checkouts.css'
-  = stylesheet_link_tag '/admin/stylesheets/newsletters/edit.css'
+  = stylesheet_link_tag '/assets/uploadify/uploadify.css'
+  = javascript_include_tag '/assets/admin/checkouts/edit.js'
+  = javascript_include_tag '/assets/admin/orders/edit.js'
+  = javascript_include_tag '/assets/newsletters/edit.js'
+  = stylesheet_link_tag '/assets/newsletters/edit.css'
+  = stylesheet_link_tag '/assets/jquery-ui-1.8.16.custom.css'
+  = javascript_include_tag '/assets/uploadify/swfobject.js'
+  = javascript_include_tag '/assets/uploadify/jquery.uploadify.v2.1.4.min.js'
   
+  
+
+- key = Rails.application.config.session_options[:key]
 :javascript
-  var newsletter_id = #{@newsletter.id};
+  var newsletter_id = #{@newsletter.id}, app_key = '#{key}', app_cookie = '#{cookies[key]}';
+
+#remote-diologe
+  &nbsp;

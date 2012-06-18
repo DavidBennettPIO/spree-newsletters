@@ -1,0 +1,13 @@
+<p>
+  <%= f.label(:email, t("email")) %><br />
+  <%= f.text_field('email', :class => 'title') %>
+</p>
+<p>
+  <%= f.label :password, t("password") %><br />
+  <%= f.password_field 'password', :class => 'title' %>
+</p>
+
+<p>
+  <%= f.label :subscribed, t(:subscribe) %>
+  <%= f.check_box :subscribed %>
+</p>

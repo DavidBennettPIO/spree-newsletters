@@ -1,0 +1,30 @@
+.module_order_out
+{
+	padding-left: 20px;
+	float: left;
+}
+iframe
+{
+	float: left;
+}
+#module_list
+{
+	margin: 0;
+}
+#module_list li
+{
+  padding: 2px 0 2px 0;
+  margin: 2px 0;
+  background: #fff url("/assets/admin/icons/reorder.gif") no-repeat scroll 4px right;
+  cursor: move;
+}
+
+h4
+{
+	margin: 12px 0 2px 0;
+}
+
+.uploadifyQueueItem
+{
+	width: 300px;
+}

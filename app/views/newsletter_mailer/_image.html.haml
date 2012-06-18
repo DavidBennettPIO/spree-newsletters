@@ -1,0 +1,14 @@
+- image = NewsletterImage.find(image_id)
+- if image.href.blank?
+  - if @in_mailer
+    - imgurl = image.newsletter_image.path(:normal).split('/').last
+    = image_tag attachments[imgurl].url, :alt => image.name
+  - else
+    = image_tag image.newsletter_image.url(:normal), :alt => image.name
+- else
+  %a{:href => image.href}
+    - if @in_mailer
+      - imgurl = image.newsletter_image.path(:normal).split('/').last
+      = image_tag attachments[imgurl].url, :alt => image.name
+    - else
+      = image_tag image.newsletter_image.url(:normal), :alt => image.name
