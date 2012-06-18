@@ -22,6 +22,9 @@ module SpreeNewsletters
       
       app.config.assets.precompile += ['newsletters/edit.js']
       app.config.assets.precompile += ['newsletters/edit.css']
+      app.config.assets.precompile += ['uploadify/uploadify.css']
+      app.config.assets.precompile += ['uploadify/swfobject.js']
+      app.config.assets.precompile += ['uploadify/jquery.uploadify.v2.1.4.min.js']
       
       app.middleware.insert_before(
         ActionDispatch::Session::CookieStore,
