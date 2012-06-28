@@ -1,0 +1,27 @@
+- content_for :sub_menu do
+  = render :partial => "admin/shared/newsletter_sub_nav"
+.toolbar
+  %ul.actions
+    %li= button_link_to 'New Newsletter Recipient', new_admin_newsletter_recipient_path, :icon => 'add'
+  %br.clear
+%h1 Newsletter Recipients
+
+%table.index
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Country
+      %th State
+      %th{:width => 150}
+        = t("action")
+  %tbody
+    - for newsletter_recipient in @newsletter_recipients
+      %tr{:id => dom_id(newsletter_recipient)}
+        %td= newsletter_recipient.name
+        %td= newsletter_recipient.email
+        %td= newsletter_recipient.country.name
+        %td= newsletter_recipient.state.name
+        %td
+          = link_to_edit newsletter_recipient
+          = link_to_delete newsletter_recipient

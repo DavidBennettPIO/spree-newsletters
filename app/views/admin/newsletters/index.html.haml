@@ -1,3 +1,6 @@
+- content_for :sub_menu do
+  = render :partial => "admin/shared/newsletter_sub_nav"
+
 .toolbar
   %ul.actions
     %li= button_link_to t(:new_newsletter), new_admin_newsletter_path, :icon => 'add'

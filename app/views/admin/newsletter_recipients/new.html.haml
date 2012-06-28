@@ -1,0 +1,6 @@
+%h1 New Newsletter Recipient 
+= render "shared/error_messages", :target => @newsletter_recipient
+
+= form_for(:newsletter_recipient, :url => collection_url) do |f|
+  = render :partial => "form", :locals => { :f => f }
+  = render :partial => "admin/shared/new_resource_links"

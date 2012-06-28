@@ -11,5 +11,6 @@ Rails.application.routes.draw do
       match 'edit_copy/:newsletter_copy_id' => 'newsletters#edit_copy', :via => :get, :as => 'edit_copy'
       match 'update_copy/:newsletter_copy_id' => 'newsletters#update_copy', :via => :put, :as => 'update_copy'
     end
+    resources :newsletter_recipients
   end
 end

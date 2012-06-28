@@ -1,0 +1,20 @@
+= render "shared/error_messages", :target => @newsletter_recipient
+%fieldset#general_fields
+  %legend= t(:general)
+  = f.field_container :name do
+    = f.label :name
+    <br />
+    = f.text_field :name, :style => "width:750px"
+  = f.field_container :email do
+    = f.label :email
+    <br />
+    = f.text_field :email, :style => "width:750px"
+  = f.field_container :state_id do
+    = f.label :state_id, "Country"
+    <br />
+    = f.collection_select :country_id, Country.order(:name).all, :id, :name, {}, {:style => 'width: 150px;'}
+  = f.field_container :state_id do
+    = f.label :state_id, "State"
+    <br />
+    = f.collection_select :state_id, State.order(:name).all, :id, :name, {:include_blank => true}, {:style => "width:150px;"}
+    
