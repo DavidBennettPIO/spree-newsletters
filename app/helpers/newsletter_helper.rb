@@ -16,14 +16,29 @@ module NewsletterHelper
     '10px'
   end
   
+  def p_padding
+    '6px'
+  end
+  
+  def v_margin
+    '24px'
+  end
+  
+  def p_margin
+    '10px'
+  end
+  
   def hr_color
     '#ccc'
   end
   
-  def hr_padding
-    v_padding + ' ' + content_padding
+  def hr_margin
+    v_margin + ' ' + content_padding
   end
-
+  
+  def image_dir
+    File.join(::Rails.root.to_s, '/app/assets/images/')
+  end
   def render_html_module newsletter_line, prev_module_name
     
     puts prev_module_name

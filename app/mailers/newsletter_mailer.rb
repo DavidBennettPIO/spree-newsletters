@@ -6,11 +6,18 @@ class NewsletterMailer < ActionMailer::Base
   default :from => "noreply@triggahappi.com.au"
   
   
-  def send_newsletter(user, newsletter)
+  def send_newsletter(newsletter)
     @newsletter = newsletter
+    
+    @in_mailer = true
+    
+    @newsletter.newsletter_lines.where(:module_name => 'image').each do |newsletter_line|
+      image = NewsletterImage.find(newsletter_line.module_id)
+      attachments.inline[image.newsletter_image.path(:normal).split('/').last] = File.read(image.newsletter_image.path(:normal))
+    end    
+    
     mail(
-      :to => user.email,
-      :subject => "Please see the Terms and Conditions attached"
+      :subject => @newsletter.subject
       )
     
   end

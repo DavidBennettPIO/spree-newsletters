@@ -7,4 +7,5 @@ class NewslettersController < ApplicationController
     end
     render 'newsletter_mailer/send_newsletter', :layout => 'newsletter'
   end
+
 end

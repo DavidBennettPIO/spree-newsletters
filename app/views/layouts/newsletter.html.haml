@@ -1,20 +1,76 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 %html
   %head
-    %title foo
+    %title= @newsletter.subject
     %meta{:'http-equiv' => "Content-Type", 'content' => "text/html; charset=utf-8"}
     %meta{:name => "viewport", 'content' => "width = 620"}
     %style{:type => 'text/css'}
       :plain
-        html, body, table, tr, td
-        {
+        html, body, table, tr, td, th{
           margin: 0;
           padding: 0;
         }
-        body, td, p
-        {
+        body, td, p, h1, h2, h3, .ch1, .ch2, .ch3, h4, .ch4, th, .cth{
           font-family: Arial, Helvetica, sans-serif;
           font-size: 13px;
+          padding: 0;
+        }
+        a, a:link {
+          color: #333;
+        }
+        h1, h2, h3, .ch1, .ch2, .ch3, h4, .ch4{
+          margin: #{v_margin} #{content_padding} #{p_margin} #{content_padding};
+        }
+        p, .cp {
+          margin: #{p_margin} #{content_padding};
+        }
+        h1, .ch1{
+          font-size: 20px;
+          margin-top: #{content_padding};
+        }
+        h2, .ch2{
+          font-size: 18px;
+          margin-top: #{content_padding};
+        }
+        h3, .ch3{
+          font-size: 15px;
+        }
+        h4, .ch4{
+          font-size: 13px;
+          margin-bottom: 6px;
+        }
+        hr, .chr{
+          margin: #{hr_margin};
+          border-top: #{hr_color} 1px solid;
+          font-size: 1px;
+          height: 1px;
+          text-overflow: hidden;
+        }
+        .smalltext p, .cp{
+          font-size: 11px;
+          margin: 6px #{content_padding};
+        }
+        td.row, td.rowc{
+          border-top: 1px #EEE solid;
+          padding: 4px 8px;
+        }
+        th, .cth, .cthc, td.cth, td.cthc{
+          padding: 4px 8px;
+          background-color: #254680;
+          border: 0;
+          color: white;
+          font-weight: bold;
+        }
+        .cth, td.cth, td.row{
+          text-align: left;
+        }
+        .cthc, td.cthc, td.rowc{
+          text-align: center;
+          padding: 4px 0;
+        }
+        .save
+        {
+          color: #00aa11;
         }
 %body{:style => "font-family: Arial, Helvetica, sans-serif; font-size: 13px; margin:0; padding:0; border:0; background-color:#000;"}
   %table{:width => 620, :align => 'center',:style => "margin: 0 auto; border: solid 1px #000;", :cellpadding => 0, :cellspacing => 0, :border => 0}

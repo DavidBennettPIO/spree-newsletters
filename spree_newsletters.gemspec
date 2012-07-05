@@ -18,5 +18,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency('spree_core', '>= 0.70.0')
   s.add_dependency('acts_as_list')
+  s.add_dependency('delayed_job_active_record')
+  s.add_dependency('daemons')
+  
   
 end

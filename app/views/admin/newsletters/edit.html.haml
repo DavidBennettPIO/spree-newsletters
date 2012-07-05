@@ -5,3 +5,13 @@
   = render "admin/shared/edit_resource_links"
 
 = render :partial => "edit_modules"
+
+%p
+  = link_to "Send Test", admin_newsletter_send_test_path(:newsletter_id => @newsletter.id), :remote => true
+  
+  = form_for(:newsletter, :url => admin_newsletter_send_email_path(:newsletter_id => @newsletter.id)) do |f| #, :remote => true
+    %p
+      = label :state_ids, 'State'
+      = collection_select nil, :state_ids, State.all, :id, :name, {}, { :multiple => true, :style => 'height: 300px;' }
+    %p
+      = f.submit 'Send Email'

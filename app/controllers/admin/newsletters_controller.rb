@@ -73,6 +73,27 @@ class Admin::NewslettersController < Admin::ResourceController
     
   end
   
+  def send_test
+  
+    @newsletter = Newsletter.find(params[:newsletter_id])
+  
+    Delayed::Job.enqueue NewsletterJob.new(nil, @newsletter.id)
+    
+    render :nothing => true
+    
+  end
+  
+  def send_email
+  
+    sids = params[:state_ids].map{|sid| sid.to_i if sid.to_i > 0}
+    @newsletter = Newsletter.find(params[:newsletter_id])
+  
+    Delayed::Job.enqueue NewsletterJob.new(sids, @newsletter.id)
+    
+    redirect_to admin_newsletters_path
+    
+  end
+  
   def file_upload_params
     h = Hash.new
     h = params[:Filedata]
