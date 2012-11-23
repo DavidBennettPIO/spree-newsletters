@@ -75,14 +75,17 @@
         td.price
         {
           color: #ffffff;
-          background-color: #00abd3;
+          background-color: #00acd7;
+          height: 32px;
+          font-size: 15px;
+          font-weight: bold;
         }
 %body{:style => "font-family: Arial, Helvetica, sans-serif; font-size: 13px; margin:0; padding:0; border:0; background-color:#000;"}
   %table{:width => 620, :align => 'center',:style => "margin: 0 auto; border: solid 1px #000;", :cellpadding => 0, :cellspacing => 0, :border => 0}
     %tr
-      %td{:style => "background-color:#EEE;"}
+      %td{:colspan => 2, :style => "background-color: #EEE;"}
         = yield
-    %tr
+    %tr{:style => "background-color: #000;"}
       %td{:style => "margin: #{p_margin} 0; color: ccc;", :align => "left", :valign => "middle" }
         %p To Unsubscribe simply reply to this email with the word UNSUBSCRIBE.
       %td{:style => "margin: #{p_margin} #{v_margin}", :align => "right", :valign => "middle" }
