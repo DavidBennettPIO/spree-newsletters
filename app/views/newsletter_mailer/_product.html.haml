@@ -3,7 +3,10 @@
   %table{:width => 134, :height => 240, :style => 'background-color: #FFF; border: 1px #ccc solid; width: 134px;', :cellpadding => 0, :cellspacing => 0, :border => 0}
     %tr
       %td{:height => 164, :valign => 'middle', :align => 'center'}
-        = image_tag product.images.first.attachment.url(:small, false)
+        = image_tag product.images.first.attachment.url(:small, false), :alt => product.product_format.name + ' ' + product.name
     %tr
       %td{:align => 'center'}
         = product.name
+    %tr
+      %td.price{:align => 'center'}
+        $#{(product.price*1.1).round(2)}
