@@ -11,7 +11,7 @@ class NewsletterMailer < ActionMailer::Base
     
     @in_mailer = true
     
-    attachments.inline['triggahappi_logo_30.jpg'] = File.read('/var/www/triggahappi/public/asets/triggahappi_logo_30.jpg')
+    attachments.inline['triggahappi_logo_30.jpg'] = File.read('/var/www/triggahappi/public/assets/triggahappi_logo_30.jpg')
     
     @newsletter.newsletter_lines.where(:module_name => 'image').each do |newsletter_line|
       image = NewsletterImage.find(newsletter_line.module_id)
