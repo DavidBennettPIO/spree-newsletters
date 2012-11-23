@@ -8,7 +8,6 @@
 - else
   %a{:href => image.href}
     - if @in_mailer
-      - imgurl = image.newsletter_image.path(:normal).split('/').last
-      = image_tag attachments[imgurl].url, :alt => image.name
+      %a{:href=>'https://www.triggahappi.com.au/'}= image_tag attachments['triggahappi_logo_34.jpg'].url, :alt => 'triggahappi.com.au'
     - else
-      = image_tag image.newsletter_image.url(:normal), :alt => image.name
+      %a{:href=>'https://www.triggahappi.com.au/'}= image_tag 'triggahappi_logo_34.jpg', :alt => 'triggahappi.com.au'
