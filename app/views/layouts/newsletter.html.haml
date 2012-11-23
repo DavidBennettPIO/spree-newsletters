@@ -86,11 +86,11 @@
       %td{:colspan => 2, :style => "background-color: #EEE;"}
         = yield
     %tr{:style => "background-color: #000;"}
-      %td{:style => "padding: #{p_margin} 0; color: ccc;", :align => "left", :valign => "middle" }
+      %td{:style => "padding: #{v_margin} #{p_margin} 0; color: ccc;", :align => "left", :valign => "middle" }
         %p{:style => "color: ccc;"} To Unsubscribe simply reply to this email with the word UNSUBSCRIBE.
-      %td{:style => "padding: #{p_margin} #{v_margin}", :align => "right", :valign => "middle" }
+      %td{:style => "padding: #{v_margin} #{p_margin}", :align => "right", :valign => "middle" }
         - if @in_mailer
-          %a{:href=>'https://www.triggahappi.com.au/'}= image_tag attachments['triggahappi_logo_34.jpg'].url, :alt => 'triggahappi.com.au'
+          %a{:href=>'https://www.triggahappi.com.au/'}= image_tag attachments['triggahappi_logo_30.jpg'].url, :alt => 'triggahappi.com.au'
         - else
-          %a{:href=>'https://www.triggahappi.com.au/'}= image_tag 'triggahappi_logo_34.jpg', :alt => 'triggahappi.com.au'
+          %a{:href=>'https://www.triggahappi.com.au/'}= image_tag 'triggahappi_logo_30.jpg', :alt => 'triggahappi.com.au'
         
