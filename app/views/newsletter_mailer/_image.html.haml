@@ -1,4 +1,4 @@
-- image = NewsletterImage.find(image_id)
+- image = Spree::NewsletterImage.find(image_id)
 - if image.href.blank?
   - if @in_mailer
     - imgurl = image.newsletter_image.path(:normal).split('/').last

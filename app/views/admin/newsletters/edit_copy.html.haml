@@ -1,4 +1,0 @@
-%h1 Edit Newsletter Copy
-
-= form_for(@newsletter_copy, :url => admin_newsletter_update_copy_path, :html => { :multipart => true }, :remote => true) do |f|
-  = render :partial => "copy_form", :locals => { :f => f }

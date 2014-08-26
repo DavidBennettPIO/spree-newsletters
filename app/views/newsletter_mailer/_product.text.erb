@@ -1,2 +1,2 @@
-<% product = Product.find(product_id) %>
+<% product = Spree::Product.find(product_id) %>
 <%= product.product_format.name %> <%= product.name %>  $<%= (product.price*1.1).round(2) %> 

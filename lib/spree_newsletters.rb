@@ -20,11 +20,8 @@ module SpreeNewsletters
     
     initializer "spree_newsletters.env" do |app|
       
-      app.config.assets.precompile += ['newsletters/edit.js']
-      app.config.assets.precompile += ['newsletters/edit.css']
-      app.config.assets.precompile += ['uploadify/uploadify.css']
-      app.config.assets.precompile += ['uploadify/swfobject.js']
-      app.config.assets.precompile += ['uploadify/jquery.uploadify.v2.1.4.min.js']
+      app.config.assets.precompile += ['admin/spree_newsletters.js']
+      app.config.assets.precompile += ['admin/spree_newsletters.css']
       
       app.middleware.insert_before(
         ActionDispatch::Session::CookieStore,

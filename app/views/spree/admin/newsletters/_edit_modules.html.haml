@@ -33,22 +33,10 @@
       
 %fieldset#email_preview
   %legend= t(:newsletter_preview)
-  %iframe{:id => 'newsletter-preview', :src => newsletter_path(@newsletter.id), :width => '900px', :height => '600px'}
+  %iframe{:id => 'newsletter-preview', :src => spree.newsletter_path(@newsletter.id), :width => '900px', :height => '600px'}
   .module_order_out
     = render :partial => "module_list"
     #trash TRASH
-  
-- content_for :head do
-  = stylesheet_link_tag '/assets/uploadify/uploadify.css'
-  = javascript_include_tag '/assets/admin/checkouts/edit.js'
-  = javascript_include_tag '/assets/admin/orders/edit.js'
-  = javascript_include_tag '/assets/newsletters/edit.js'
-  = stylesheet_link_tag '/assets/newsletters/edit.css'
-  = stylesheet_link_tag '/assets/jquery-ui-1.8.16.custom.css'
-  = javascript_include_tag '/assets/uploadify/swfobject.js'
-  = javascript_include_tag '/assets/uploadify/jquery.uploadify.v2.1.4.min.js'
-  
-  
 
 - key = Rails.application.config.session_options[:key]
 :javascript

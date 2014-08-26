@@ -1,9 +1,9 @@
 - content_for :sub_menu do
-  = render :partial => "admin/shared/newsletter_sub_nav"
+  = render :partial => "spree/admin/shared/newsletter_sub_nav"
 
 .toolbar
   %ul.actions
-    %li= button_link_to t(:new_newsletter), new_admin_newsletter_path, :icon => 'add'
+    %li= button_link_to t(:new_newsletter), spree.new_admin_newsletter_path, :icon => 'add'
   %br.clear
 %h1=t(:newsletters)
 

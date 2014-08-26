@@ -1,0 +1,4 @@
+%h1 Edit Newsletter Copy
+
+= form_for(@newsletter_copy, url: spree.admin_newsletter_update_copy_path, remote: true, authenticity_token: true) do |f|
+  = render partial: "copy_form", locals: { f: f }

@@ -1,4 +1,5 @@
-Rails.application.routes.draw do
+Spree::Core::Engine.routes.draw do
+
   match 'newsletters/:id' => 'newsletters#show', :as => 'newsletter'
   namespace :admin do
     resources :newsletters do
@@ -16,4 +17,5 @@ Rails.application.routes.draw do
     end
     resources :newsletter_recipients
   end
+
 end
