@@ -4,7 +4,7 @@ class NewsletterJob < Struct.new(:sids, :newsletter_id)
     
     newsletter = Spree::Newsletter.find(newsletter_id)
     
-    message = Spree::NewsletterMailer.send_newsletter(newsletter)
+    message = NewsletterMailer.send_newsletter(newsletter)
     
     if !sids.nil?
       recipients = Spree::NewsletterRecipient.where(:state_id => sids).all
