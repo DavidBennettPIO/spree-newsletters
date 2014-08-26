@@ -1,8 +1,12 @@
 class NewsletterMailer < ActionMailer::Base
+
   layout 'newsletter'
+
+  helper :application
   helper :newsletter
   helper 'spree/base'
-  helper :products
+  helper 'spree/products'
+
   default :from => "noreply@triggahappi.com.au"
   
   
@@ -11,10 +15,10 @@ class NewsletterMailer < ActionMailer::Base
     
     @in_mailer = true
     
-    attachments.inline['triggahappi_logo_30.jpg'] = File.read('/var/www/triggahappi/public/assets/triggahappi_logo_30.jpg')
+    attachments.inline['triggahappi_logo_30.jpg'] = File.read(SpreeNewsletters::Engine.root.join('app/assets/images/triggahappi_logo_30.jpg'))
     
     @newsletter.newsletter_lines.where(:module_name => 'image').each do |newsletter_line|
-      image = NewsletterImage.find(newsletter_line.module_id)
+      image = Spree::NewsletterImage.find(newsletter_line.module_id)
       attachments.inline[image.newsletter_image.path(:normal).split('/').last] = File.read(image.newsletter_image.path(:normal))
     end    
     

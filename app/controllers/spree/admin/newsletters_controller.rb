@@ -19,7 +19,7 @@ module Spree
       end
 
       def sort
-        puts params['module']
+        #puts params['module']
         NewsletterLine.where(:newsletter_id => params['newsletter_id']).all.each do |nl|
           nl.position = params['module'].index(nl.id.to_s)
           nl.save

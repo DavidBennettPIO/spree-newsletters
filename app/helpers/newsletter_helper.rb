@@ -46,7 +46,7 @@ module NewsletterHelper
 
   def render_html_module newsletter_line, prev_module_name
 
-    puts prev_module_name
+    #puts prev_module_name
 
     output_html = ''
 
