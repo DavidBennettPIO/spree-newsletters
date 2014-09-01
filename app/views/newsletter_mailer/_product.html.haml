@@ -3,10 +3,11 @@
   %table{:width => 134, :height => 240, :style => 'background-color: #FFF; border: 1px #ccc solid; width: 134px;', :cellpadding => 0, :cellspacing => 0, :border => 0}
     %tr
       %td{:height => 164, :valign => 'middle', :align => 'center'}
-        = image_tag product.images.first.attachment.url(:small, false), :alt => product.product_format.name + ' ' + product.name
+        = link_to image_tag(product.images.first.attachment.url(:small, false), :alt => product.product_format.name + ' ' + product.name), "http://triggahappi.com.au#{product_path(product)}"
     %tr
-      %td{:align => 'center'}
-        = product.name
+      %td{:height => 42, :valign => 'middle', :align => 'center'}
+
+        = link_to product.name, "http://triggahappi.com.au#{product_path(product)}"
     %tr
       %td.price{:align => 'center'}
         = number_to_currency(product.price)
