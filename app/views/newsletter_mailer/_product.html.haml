@@ -9,4 +9,4 @@
         = product.name
     %tr
       %td.price{:align => 'center'}
-        $#{(product.price).round(2)}
+        = number_to_currency(product.price)
