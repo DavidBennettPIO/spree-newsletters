@@ -1,19 +1,19 @@
 - content_for :sub_menu do
-  = render :partial => "admin/shared/newsletter_sub_nav"
+  = render :partial => "spree/admin/shared/newsletter_sub_nav"
 .toolbar
   %ul.actions
-    %li= button_link_to 'New Newsletter Recipient', new_admin_newsletter_recipient_path, :icon => 'add'
+    %li= button_link_to 'New Newsletter Recipient', spree.new_admin_newsletter_recipient_path, :icon => 'add'
   %br.clear
 %h1 Newsletter Recipients
 
 %table.index
   %thead
     %tr
-      %th Name
+      %th{width: 260} Name
       %th Email
-      %th Country
-      %th State
-      %th{:width => 150}
+      %th{width: 180} Country
+      %th{width: 200} State
+      %th{:width => 140}
         = t("action")
   %tbody
     - for newsletter_recipient in @newsletter_recipients
