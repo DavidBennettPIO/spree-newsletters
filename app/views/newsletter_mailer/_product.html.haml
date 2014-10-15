@@ -11,7 +11,7 @@
     %tr
       %td.saving{:align => 'center'}
         %span.rrp{:style => 'text-decoration: line-through;'}= number_to_currency(product.srp_price)
-        %strong.save= number_to_currency(product.srp_price.to_f-product.price)
+        %strong.save= "SAVE #{number_to_currency(product.srp_price.to_f-product.price)}"
     %tr
       %td.price{:align => 'center'}
         = number_to_currency(product.price)
